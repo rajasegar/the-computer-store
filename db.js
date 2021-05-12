@@ -1,5 +1,6 @@
 require('dotenv').config();
 const mysql = require('mysql');
+const fs = require('fs');
 
 const DB_HOST = process.env.NODE_ENV === 'production' ? process.env.MYSQL_HOST : 'localhost';
 const DB_USER = process.env.NODE_ENV === 'production' ? process.env.MYSQL_USER : 'root';
@@ -10,7 +11,10 @@ const connection = mysql.createConnection({
   host: DB_HOST,
   user: DB_USER,
   password: DB_PASS,
-  database: DB_NAME
+  database: DB_NAME,
+  ssl: {
+    ca: fs.readFileSync(__dirname + '/ssl/cleardb-ca.pem')
+  }
 });
 
 connection.connect(function(err) {
