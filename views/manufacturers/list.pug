@@ -1,0 +1,17 @@
+extends _layout
+block body
+  h1 Manufacturers
+  table
+    thead
+      th Name
+      th Edit
+      th Delete
+    tbody
+      each item in items
+        tr
+          td 
+            a(href="/manufacturers/show/" + item.code) #{item.name}
+          td
+            a.button.small(href="/manufacturers/edit/" + item.code) Edit
+          td
+            a.button.small.alert(href="/manufacturers/delete/" + item.code) Delete

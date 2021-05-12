@@ -1,0 +1,22 @@
+extends _layout
+block body
+  h1 New Product
+  form(action="/products", method="POST")
+    label
+      | Name:
+      input(type="text", name="name")
+    label
+      | Price:
+      input(type="number", name="price")
+    label
+      | Manufacturer:
+      select(name="manufacturer")
+        each m in manufacturers
+          option(value=m.code) #{m.name}
+    .grid-x
+      .cell.small-1
+        button.button(type="submit") Create
+      .cell.small-1
+        button.button(type="reset") Reset
+      .cell.small-1
+        a.alert.button(href="/products") Cancel

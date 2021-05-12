@@ -1,0 +1,26 @@
+extends ../_layout
+block body
+  .grid-x
+    .cell.small-8
+      h1 Products
+    .cell.small-4
+      a.button(href="/products/new") New Product
+  table
+    thead
+      th Name
+      th Price
+      th Manufacturer
+      th Edit
+      th Delete
+    tbody
+      each item in products
+        tr
+          td 
+            a(href="/products/show/" + item.code) #{item.name}
+          td $#{item.price}
+          td 
+            a(href="/manufacturers/show/" + item.man_code) #{item.manufacturer}
+          td
+            a.button.small(href="/products/edit/" + item.code) Edit
+          td
+            a.alert.button.small(href="/products/delete/" + item.code) Delete

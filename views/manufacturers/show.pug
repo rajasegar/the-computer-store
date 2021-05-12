@@ -1,0 +1,17 @@
+extends ../_layout.pug
+block body
+  nav(aria-label="You are here:" role="navigation")
+    ul.breadcrumbs
+      li
+        a(href="/") Home
+      li
+        a(href="/manufacturers") Manufacturers
+      li
+        span.show-for-sr Current:
+        | #{man.name}
+
+  h1 #{man.name}
+  h4 Products:
+  ul
+    each p in products
+      li= p.name

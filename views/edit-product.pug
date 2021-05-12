@@ -1,0 +1,20 @@
+extends _layout
+block body
+  h1 Edit Product
+  form(action="/products/edit/" + product.code, method="POST")
+    label
+      | Name:
+      input(type="text", name="name", value=product.name)
+    label
+      | Price:
+      input(type="number", name="price", value=product.price)
+    label
+      | Manufacturer:
+      select(name="manufacturer")
+        each m in manufacturers
+          option(value=m.code, selected=m.code === product.manufacturer) #{m.name}
+    .grid-x
+      .cell.small-1
+        button.button(type="submit") Update
+      .cell.small-1
+        a.alert.button(href="/products") Cancel

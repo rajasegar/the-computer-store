@@ -1,0 +1,30 @@
+doctype html
+html.no-js(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title The Computer Store
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous")
+  body
+    #example-menu.top-bar
+      .top-bar-left
+        ul.dropdown.menu(data-dropdown-menu='')
+          li.menu-text The Computer Store
+          li
+            a(href="/") Home
+          li
+            a(href='/manufacturers') Manufacturers
+          li
+            a(href='/products') Products
+      .top-bar-right
+        ul.menu
+          li
+            input(type='search' placeholder='Search')
+          li
+            button.button(type='button') Search
+
+    .grid-container
+      .grid-margin-x
+        block body
+    script(src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous")
