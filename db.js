@@ -1,9 +1,16 @@
+require('dotenv').config();
 const mysql = require('mysql');
+
+const DB_HOST = process.env.NODE_ENV === 'production' ? process.env.MYSQL_HOST : 'localhost';
+const DB_USER = process.env.NODE_ENV === 'production' ? process.env.MYSQL_USER : 'root';
+const DB_PASS = process.env.NODE_ENV === 'production' ? process.env.MYSQL_PASSWORD : 'root';
+const DB_NAME = process.env.NODE_ENV === 'production' ? process.env.MYSQL_DATABASE : 'computer_store';
+
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "computer_store"
+  host: DB_HOST,
+  user: DB_USER,
+  password: DB_PASS,
+  database: DB_NAME
 });
 
 connection.connect(function(err) {
