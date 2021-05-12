@@ -16,7 +16,7 @@ router.get('/show/:id', async (req, res) => {
 
 router.get('/', async (req, res) => {
   const results = await getManufacturers();
-  res.render('manufacturers', { items: results });
+  res.render('manufacturers/list', { items: results });
 });
 
 

@@ -14,4 +14,5 @@ block body
   h4 Products:
   ul
     each p in products
-      li= p.name
+      li
+        a(href="/products/show/" + p.code) #{p.name}
