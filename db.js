@@ -13,7 +13,7 @@ const connection = mysql.createConnection({
   password: DB_PASS,
   database: DB_NAME,
   ssl: {
-    ca: fs.readFileSync(__dirname + '/ssl/cleardb-ca.pem')
+    rejectUnauthorized: false
   }
 });
 
